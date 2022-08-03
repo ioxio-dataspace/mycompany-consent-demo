@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { Message, Image, Spinner } from 'theme-ui'
+import React, { useState, useEffect } from "react"
+import { Message, Image, Spinner } from "theme-ui"
 import {
   CompanyBasicInfo,
   Container,
@@ -7,41 +7,41 @@ import {
   OwnershipDataTable,
   UserProfile,
   DataProduct,
-} from 'components'
-import { API } from 'utilities'
+} from "components"
+import { API } from "utilities"
 
-import person2Img from 'assets/images/demo-person/demo-3.jpg'
+import person2Img from "assets/images/demo-person/demo-3.jpg"
 
-import prhLogo from 'assets/images/prh-logo.png'
-import myBisLogo from 'assets/images/mybis-dark-logo.svg'
+import prhLogo from "assets/images/prh-logo.png"
+import myBisLogo from "assets/images/mybis-dark-logo.svg"
 
 const DATA_PRODUCTS = [
   {
-    name: 'Business register extract',
-    description: 'Finnish Patent and Registration Office',
+    name: "Business register extract",
+    description: "Finnish Patent and Registration Office",
     image: prhLogo,
   },
   {
-    name: 'List of shareholders',
-    description: 'mybis register',
+    name: "List of shareholders",
+    description: "mybis register",
     image: myBisLogo,
   },
 ]
 
 const USER_DATA = {
-  name: 'James Jaatinen',
-  jobTitle: 'Founder',
+  name: "James Jaatinen",
+  jobTitle: "Founder",
   image: person2Img,
 }
 
-const sharedConsentList = ['Business register extract', 'List of shareholders']
+const sharedConsentList = ["Business register extract", "List of shareholders"]
 
 function CompanyView({ company = {}, userData = {} }) {
   const [basicCompanyInfoData, setBasicCompanyInfoData] = useState({
     basicInfo: {},
     isLoading: true,
     dataIsShared: false,
-    error: '',
+    error: "",
   })
 
   const [ownershipData, setOwnershipData] = useState({
@@ -49,7 +49,7 @@ function CompanyView({ company = {}, userData = {} }) {
     shareSeries: [],
     isLoading: true,
     dataIsShared: false,
-    error: '',
+    error: "",
   })
 
   useEffect(() => {
@@ -62,24 +62,24 @@ function CompanyView({ company = {}, userData = {} }) {
       if (ok) {
         for (const consent of sharedConsentList) {
           switch (consent) {
-            case 'Business register extract':
+            case "Business register extract":
               setBasicCompanyInfoData({
                 basicInfo: {},
                 isLoading: !!data[consent],
                 dataIsShared: !!data[consent],
-                error: '',
+                error: "",
               })
 
               if (data[consent]) {
                 ;(async () => {
-                  if (company.hasOwnProperty('businessId')) {
+                  if (company.hasOwnProperty("businessId")) {
                     const { ok, data, error } = await API.getCompanyBasicInfo(
                       company.businessId
                     )
                     if (ok) {
                       setBasicCompanyInfoData({
                         basicInfo: { ...data, ...company.basicInfo },
-                        error: '',
+                        error: "",
                         dataIsShared: true,
                         isLoading: false,
                       })
@@ -96,18 +96,18 @@ function CompanyView({ company = {}, userData = {} }) {
               }
               break
 
-            case 'List of shareholders':
+            case "List of shareholders":
               setOwnershipData({
                 owners: [],
                 shareSeries: [],
                 isLoading: !!data[consent],
                 dataIsShared: !!data[consent],
-                error: '',
+                error: "",
               })
 
               if (data[consent]) {
                 ;(async () => {
-                  if (company.hasOwnProperty('businessId')) {
+                  if (company.hasOwnProperty("businessId")) {
                     const { ok, data, error } = await API.getOwnershipData(
                       company.businessId
                     )
@@ -117,7 +117,7 @@ function CompanyView({ company = {}, userData = {} }) {
                         shareSeries: data.shareSeries,
                         isLoading: false,
                         dataIsShared: true,
-                        error: '',
+                        error: "",
                       })
                     } else {
                       setOwnershipData({
@@ -147,25 +147,25 @@ function CompanyView({ company = {}, userData = {} }) {
   return (
     <Container
       csx={{
-        variant: ['flex.column', 'flex.column', 'flex.row'],
-        flexWrap: 'wrap',
-        justifyContent: [null, null, 'space-between'],
+        variant: ["flex.column", "flex.column", "flex.row"],
+        flexWrap: "wrap",
+        justifyContent: [null, null, "space-between"],
       }}
     >
       <Container
         csx={{
-          variant: 'flex.columnCenterNoMargin',
+          variant: "flex.columnCenterNoMargin",
           mb: [5],
-          flex: '50%',
-          justifyContent: 'start',
-          alignItems: 'start',
+          flex: "50%",
+          justifyContent: "start",
+          alignItems: "start",
           mr: [0, 4, 4],
-          borderRight: ['none', 'none', 'menuItem'],
+          borderRight: ["none", "none", "menuItem"],
         }}
       >
         {!isLoading && !dataIsShared && (
           <Container>
-            <Message sx={{ width: ['auto', 'auto', '50%'] }} variant="info">
+            <Message sx={{ width: ["auto", "auto", "50%"] }} variant="info">
               No data was shared yet
             </Message>
           </Container>
@@ -173,7 +173,7 @@ function CompanyView({ company = {}, userData = {} }) {
 
         {basicCompanyInfoData.dataIsShared && (
           <Container csx={{ mb: 5 }}>
-            <Text csx={{ variant: 'text.sectionHeader' }}>BASIC INFO:</Text>
+            <Text csx={{ variant: "text.sectionHeader" }}>BASIC INFO:</Text>
             {!basicCompanyInfoData.isLoading && (
               <CompanyBasicInfo basicInfo={basicCompanyInfoData.basicInfo} />
             )}
@@ -184,7 +184,7 @@ function CompanyView({ company = {}, userData = {} }) {
 
         {ownershipData.dataIsShared && (
           <Container>
-            <Text csx={{ variant: 'text.sectionHeader' }}>OWNERSHIP DATA:</Text>
+            <Text csx={{ variant: "text.sectionHeader" }}>OWNERSHIP DATA:</Text>
             {!ownershipData.isLoading && (
               <OwnershipDataTable ownershipData={ownershipData} />
             )}
@@ -197,33 +197,33 @@ function CompanyView({ company = {}, userData = {} }) {
       {dataIsShared && (
         <Container
           csx={{
-            variant: 'flex.columnCenterNoMargin',
-            justifyContent: 'start',
-            alignItems: 'start',
+            variant: "flex.columnCenterNoMargin",
+            justifyContent: "start",
+            alignItems: "start",
             mt: [5, 5, 0],
           }}
         >
-          <Text csx={{ variant: 'text.sectionHeader' }}>DATA WAS SHARED BY:</Text>
+          <Text csx={{ variant: "text.sectionHeader" }}>DATA WAS SHARED BY:</Text>
 
-          <Container csx={{ variant: 'flex.rowCenter' }}>
+          <Container csx={{ variant: "flex.rowCenter" }}>
             <Image
               sx={{
-                height: ['4rem'],
+                height: ["4rem"],
                 pr: [4],
               }}
               alt={`Company logo ${company.id}`}
               src={company.image}
             />
             <UserProfile
-              imageCsx={{ borderRadius: 'circle', border: 'none' }}
-              baseProps={{ className: 'user-profile-shared' }}
+              imageCsx={{ borderRadius: "circle", border: "none" }}
+              baseProps={{ className: "user-profile-shared" }}
               name={USER_DATA.name}
               image={USER_DATA.image}
               subTitle={USER_DATA.jobTitle}
             />
           </Container>
 
-          <Text csx={{ variant: 'text.sectionHeader', mt: 5 }}>SHARED DATA:</Text>
+          <Text csx={{ variant: "text.sectionHeader", mt: 5 }}>SHARED DATA:</Text>
 
           {basicCompanyInfoData.dataIsShared && (
             <DataProduct

@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
-import { Image } from 'theme-ui'
+import React, { useState } from "react"
+import { Image } from "theme-ui"
 
-import { API, getPublicUrl } from 'utilities'
-import { LayoutRow, Button, Container, Text } from 'components'
-import sisuIdLogo from 'assets/images/sisu-id.png'
+import { API, getPublicUrl } from "utilities"
+import { LayoutRow, Button, Container, Text } from "components"
+import sisuIdLogo from "assets/images/sisu-id.png"
 
 const sisuIdLogoSx = {
   width: [200, null, null, 300],
@@ -12,17 +12,17 @@ const sisuIdLogoSx = {
 const textContainerSx = {
   mt: 1,
   mb: 5,
-  maxWidth: 'sm',
-  textAlign: 'center',
+  maxWidth: "sm",
+  textAlign: "center",
 }
 
 const loginContentContainer = {
-  variant: 'flex.columnCenter',
-  m: '0 auto',
+  variant: "flex.columnCenter",
+  m: "0 auto",
 }
 
 const errorTextSx = {
-  variant: 'text.error',
+  variant: "text.error",
   mt: 1,
 }
 
@@ -47,11 +47,11 @@ function Login() {
     <LayoutRow
       hideMenu={true}
       hideHeader={true}
-      includeOnly={['Log in']}
-      id={'login-page'}
+      includeOnly={["Log in"]}
+      id={"login-page"}
     >
       <Container
-        baseProps={{ className: 'login-content-container' }}
+        baseProps={{ className: "login-content-container" }}
         csx={loginContentContainer}
       >
         <Image sx={sisuIdLogoSx} alt="SisuID logo" src={sisuIdLogo} />
@@ -68,8 +68,8 @@ function Login() {
           asyncOnClick={{
             asyncFn: API.startLogin.bind(API),
             onAsyncFinish: (res) => onLoginRequestFinish(res),
-            loadingText: 'Logging in...',
-            successText: 'Redirecting!',
+            loadingText: "Logging in...",
+            successText: "Redirecting!",
             setErrorCb: (res, setError, setSuccess) => {
               if (res.status === 403) {
                 setSuccess()

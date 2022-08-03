@@ -1,56 +1,56 @@
 /** @jsx jsx */
-import { Card, Image, Spinner, Flex, jsx } from 'theme-ui'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { Card, Image, Spinner, Flex, jsx } from "theme-ui"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
 
-import { Text, Container } from 'components'
-import identityImg from 'assets/images/identity.svg'
-import Theme from 'theme'
+import { Text, Container } from "components"
+import identityImg from "assets/images/identity.svg"
+import Theme from "theme"
 
 const STYLE = {
   ...Theme.transitions.onHover.default,
-  width: ['10rem'],
-  height: ['15rem'],
-  bg: 'white',
+  width: ["10rem"],
+  height: ["15rem"],
+  bg: "white",
 }
 
 const imageSx = {
-  maxWidth: ['80%'],
-  p: '3',
+  maxWidth: ["80%"],
+  p: "3",
 }
 
 const cardContentSx = {
-  variant: 'flex.columnCenter',
+  variant: "flex.columnCenter",
 }
 
 const textStyles = {
   title: {
-    variant: 'text.notice',
+    variant: "text.notice",
     mt: [4],
   },
   idText: {
-    variant: 'text.mute',
+    variant: "text.mute",
     mt: 4,
   },
   jobTitle: {
-    variant: 'text.mute',
+    variant: "text.mute",
   },
 }
 
 const errorContainerSx = {
-  variant: 'flex.columnCenter',
+  variant: "flex.columnCenter",
   svg: {
-    color: 'danger',
+    color: "danger",
   },
-  '.error-text': {
-    variant: 'text.notice',
+  ".error-text": {
+    variant: "text.notice",
     my: 3,
-    textAlign: 'center',
+    textAlign: "center",
   },
 }
 
-export default ({ identity = {}, baseProps = {}, error = '', icon, csx }) => {
-  const isLoading = !identity.hasOwnProperty('data')
+export default ({ identity = {}, baseProps = {}, error = "", icon, csx }) => {
+  const isLoading = !identity.hasOwnProperty("data")
 
   const CardContentContainer = ({ children }) => (
     <Flex className="card-content-container" sx={cardContentSx}>
@@ -65,7 +65,7 @@ export default ({ identity = {}, baseProps = {}, error = '', icon, csx }) => {
           <FontAwesomeIcon size="3x" className="button-icon" icon={faTimesCircle} />
           <Text
             baseProps={{
-              className: 'error-text',
+              className: "error-text",
             }}
           >
             Couldn't load this identity.
@@ -81,7 +81,7 @@ export default ({ identity = {}, baseProps = {}, error = '', icon, csx }) => {
       {!icon && (
         <Image
           sx={imageSx}
-          alt={'Identity image for ' + identity.name}
+          alt={"Identity image for " + identity.name}
           src={identityImg}
         />
       )}

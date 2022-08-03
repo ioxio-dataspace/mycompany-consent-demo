@@ -1,9 +1,9 @@
 const fonts = {
   body: '"Helvetica Neue", Arial',
-  heading: 'inherit',
+  heading: "inherit",
   monospace:
     'SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace',
-  sans: '',
+  sans: "",
 }
 fonts.sans = fonts.body
 
@@ -19,18 +19,18 @@ fontWeights.normal = fontWeights.body
 fontWeights.display = fontWeights.light
 
 const fontSizes = [
-  '0.75rem', // '80%',
-  '0.875rem',
-  '1rem',
-  '1.25rem',
-  '1.5rem',
-  '1.75rem',
-  '2rem',
-  '2.5rem',
-  '3.5rem',
-  '4.5rem',
-  '5.5rem',
-  '6rem',
+  "0.75rem", // '80%',
+  "0.875rem",
+  "1rem",
+  "1.25rem",
+  "1.5rem",
+  "1.75rem",
+  "2rem",
+  "2.5rem",
+  "3.5rem",
+  "4.5rem",
+  "5.5rem",
+  "6rem",
 ]
 fontSizes.lead = fontSizes[3]
 
@@ -40,15 +40,15 @@ const lineHeights = {
 }
 
 const heading = {
-  fontFamily: 'heading',
-  fontWeight: 'heading',
-  lineHeight: 'heading',
+  fontFamily: "heading",
+  fontWeight: "heading",
+  lineHeight: "heading",
   mt: 0,
   mb: 2,
 }
 const display = {
-  fontWeight: 'display',
-  lineHeight: 'heading',
+  fontWeight: "display",
+  lineHeight: "heading",
 }
 
 // variants

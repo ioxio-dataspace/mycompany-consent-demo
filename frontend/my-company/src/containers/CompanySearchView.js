@@ -1,21 +1,21 @@
-import React, { useState } from 'react'
-import { CompanyBasicInfo, Container, Button, Text } from 'components'
-import { API } from 'utilities'
-import { Label, Input } from 'theme-ui'
+import React, { useState } from "react"
+import { CompanyBasicInfo, Container, Button, Text } from "components"
+import { API } from "utilities"
+import { Label, Input } from "theme-ui"
 
 const DEMO_DATA = {
-  municipality: 'N/A',
-  language: 'N/A',
-  mainLine: 'N/A',
-  postalAddress: 'N/A',
-  streetAddress: 'N/A',
-  www: 'N/A',
-  mobilePhone: 'N/A',
+  municipality: "N/A",
+  language: "N/A",
+  mainLine: "N/A",
+  postalAddress: "N/A",
+  streetAddress: "N/A",
+  www: "N/A",
+  mobilePhone: "N/A",
 }
 
 function CompanySearchView() {
   const [basicCompanyInfoRequestData, setBasicCompanyInfoRequestData] = useState({})
-  const [businessId, setBusinessId] = useState('')
+  const [businessId, setBusinessId] = useState("")
 
   const onSearchComplete = (res) => {
     const { ok, data, error } = res
@@ -23,29 +23,29 @@ function CompanySearchView() {
       setBasicCompanyInfoRequestData({ basicInfo: { ...data, ...DEMO_DATA } })
     } else {
       setBasicCompanyInfoRequestData({
-        error: error[0]?.resp?.data.detail || 'Something went wrong, try again later',
+        error: error[0]?.resp?.data.detail || "Something went wrong, try again later",
       })
     }
-    setBusinessId('')
+    setBusinessId("")
   }
 
   return (
-    <Container csx={{ variant: 'flex.column' }}>
+    <Container csx={{ variant: "flex.column" }}>
       <form>
         <Container
           csx={{
-            variant: 'flex.row',
-            width: ['auto', '60%'],
-            alignItems: 'center',
+            variant: "flex.row",
+            width: ["auto", "60%"],
+            alignItems: "center",
           }}
         >
-          <Label sx={{ width: 'auto' }} htmlFor="Business ID">
+          <Label sx={{ width: "auto" }} htmlFor="Business ID">
             Business ID:
           </Label>
           <Input
             sx={{
-              minWidth: ['50%'],
-              maxWidth: ['90%', '60%'],
+              minWidth: ["50%"],
+              maxWidth: ["90%", "60%"],
               ml: [3],
               mr: [5],
             }}
@@ -58,13 +58,13 @@ function CompanySearchView() {
         </Container>
 
         <Button
-          csx={{ mt: 3, flex: '30%', alignSelf: 'flex-start' }}
-          isDisabled={businessId === ''}
+          csx={{ mt: 3, flex: "30%", alignSelf: "flex-start" }}
+          isDisabled={businessId === ""}
           asyncOnClick={{
             asyncFn: API.getCompanyBasicInfo.bind(API, businessId),
-            loadingText: 'Searching...',
-            successText: 'Done!',
-            failText: 'Failed!',
+            loadingText: "Searching...",
+            successText: "Done!",
+            failText: "Failed!",
             resetStateTimeOut: 1000,
             onAsyncFinish: onSearchComplete,
           }}
@@ -77,7 +77,7 @@ function CompanySearchView() {
         {basicCompanyInfoRequestData.error && (
           <Text
             csx={{
-              variant: 'text.error',
+              variant: "text.error",
             }}
           >
             {basicCompanyInfoRequestData.error}

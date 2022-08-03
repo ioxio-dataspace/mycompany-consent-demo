@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { Text, jsx } from 'theme-ui'
+import { Text, jsx } from "theme-ui"
 
 const STYLE = {}
 

@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { Flex, jsx } from 'theme-ui'
-import { VerticalMenu, PageHeader } from 'components'
-import { Global, css } from '@emotion/core'
-import LayoutImage from 'assets/images/layout-side.png'
+import { Flex, jsx } from "theme-ui"
+import { VerticalMenu, PageHeader } from "components"
+import { Global, css } from "@emotion/core"
+import LayoutImage from "assets/images/layout-side.png"
 
 const GLOBAL = css(`
   html, body, #root, .page-container {
@@ -16,19 +16,19 @@ const GLOBAL = css(`
 `)
 
 const pageContainer = {
-  variant: ['flex.row'],
-  display: ['flex'],
+  variant: ["flex.row"],
+  display: ["flex"],
 }
 
 const mainContainerSx = {
-  width: '100%',
-  bg: 'main.bg',
+  width: "100%",
+  bg: "main.bg",
   px: [4, 7],
   pr: [3, 3],
-  minHeight: '100%',
+  minHeight: "100%",
   backgroundImage: [null, `url(${LayoutImage})`],
-  backgroundRepeat: 'no-repeat',
-  backgroundPositionY: '15%',
+  backgroundRepeat: "no-repeat",
+  backgroundPositionY: "15%",
 }
 
 const mainContentNoHeaderSx = {

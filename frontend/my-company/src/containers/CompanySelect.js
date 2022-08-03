@@ -1,6 +1,6 @@
-import React from 'react'
-import { useHistory } from 'react-router-dom'
-import { LayoutRow, CompanyCardHorizontal, Container, Heading } from 'components'
+import React from "react"
+import { useHistory } from "react-router-dom"
+import { LayoutRow, CompanyCardHorizontal, Container, Heading } from "components"
 
 function CompanySelect({ userData, configuration = {} }) {
   const history = useHistory()
@@ -15,13 +15,13 @@ function CompanySelect({ userData, configuration = {} }) {
     <LayoutRow
       headerTitle="Select company"
       userData={userData}
-      activeMenuItem={'Select company'}
-      id={'company-select-page'}
+      activeMenuItem={"Select company"}
+      id={"company-select-page"}
       hideMenu={true}
     >
-      <Container csx={{ variant: 'flex.column' }}>
+      <Container csx={{ variant: "flex.column" }}>
         {configuration.companies && (
-          <Heading baseProps={{ as: 'h2' }}>
+          <Heading baseProps={{ as: "h2" }}>
             You have access to {configuration.companies.length} companies:
           </Heading>
         )}

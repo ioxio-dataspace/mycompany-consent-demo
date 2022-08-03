@@ -1,11 +1,11 @@
-import API from 'utilities/api'
+import API from "utilities/api"
 
 const getPublicUrl = () => {
   /* eslint-disable no-undef */
-  if (process && process.env && typeof process.env.PUBLIC_URL === 'string') {
+  if (process && process.env && typeof process.env.PUBLIC_URL === "string") {
     return process.env.PUBLIC_URL
   } else {
-    return '/'
+    return "/"
   }
   /* eslint-enable no-undef */
 }
@@ -27,15 +27,15 @@ const getRandom = (list) => {
   return list[Math.floor(Math.random() * list.length)]
 }
 
-const convertDateUI = (dateString, format = 'yyyy-mm-dd') => {
+const convertDateUI = (dateString, format = "yyyy-mm-dd") => {
   if (!dateString) {
-    return 'N/A'
+    return "N/A"
   }
 
   const date = new Date(dateString)
   return new Date(date.getTime() - date.getTimezoneOffset() * 60000)
     .toISOString()
-    .split('T')[0]
+    .split("T")[0]
 }
 
 export { getPublicUrl, getDelay, getUrlParams, getRandom, convertDateUI, API }

@@ -61,7 +61,9 @@ async def inject_request_id_middleware(request, call_next):
     FastAPI middleware for injecting request_id and Google Trace ID if exists.
     Usage: `app.middleware("http")(inject_request_id_middleware)`
     """
-    request_id = "".join(random.choices(string.ascii_lowercase + string.digits, k=6))
+    request_id = "".join(
+        random.choices(string.ascii_lowercase + string.digits, k=6)  # nosec
+    )
     context = {"request_id": request_id}
     trace_header = request.headers.get("X-Cloud-Trace-Context")
     if trace_header:

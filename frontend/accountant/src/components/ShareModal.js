@@ -1,5 +1,5 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
+import { jsx } from "theme-ui"
 import {
   Button,
   Container,
@@ -8,12 +8,12 @@ import {
   Text,
   Select,
   DataProduct,
-} from 'components'
-import { API } from 'utilities'
-import { useState } from 'react'
+} from "components"
+import { API } from "utilities"
+import { useState } from "react"
 
 const errorTextSx = {
-  variant: 'text.error',
+  variant: "text.error",
   mt: 1,
 }
 
@@ -33,12 +33,12 @@ export default ({
   dataProduct = {},
   shareOptions = {},
 }) => {
-  const [shareError, setShareError] = useState('')
-  const [shareTo, setShareTo] = useState('')
+  const [shareError, setShareError] = useState("")
+  const [shareTo, setShareTo] = useState("")
   const [readConsentData, setReadConsentData] = useState({ data: { consent: false } })
 
   const onAfterClose = () => {
-    setShareError('')
+    setShareError("")
   }
 
   const checkIfShareable = async ({ value }) => {
@@ -61,7 +61,7 @@ export default ({
             description={dataProduct.description}
           />
           <Container csx={selectContainerSx}>
-            <Text csx={{ variant: 'text.bold' }}>Who do you want to share with?</Text>
+            <Text csx={{ variant: "text.bold" }}>Who do you want to share with?</Text>
             <Select
               onChange={checkIfShareable}
               baseProps={{
@@ -80,9 +80,9 @@ export default ({
                 { ...readConsentData.data, [dataProduct.name]: true },
                 {}
               ),
-              loadingText: 'Sharing...',
-              successText: 'Shared!',
-              failText: 'Failed!',
+              loadingText: "Sharing...",
+              successText: "Shared!",
+              failText: "Failed!",
               onAsyncFinish: () =>
                 setTimeout(checkIfShareable.bind(this, { value: shareTo }), 1000),
             }}
@@ -101,14 +101,14 @@ export default ({
                 ...readConsentData.data,
                 [dataProduct.name]: false,
               }),
-              loadingText: 'Revoking...',
-              successText: 'Revoked!',
-              failText: 'Failed!',
+              loadingText: "Revoking...",
+              successText: "Revoked!",
+              failText: "Failed!",
               onAsyncFinish: () =>
                 setTimeout(checkIfShareable.bind(this, { value: shareTo }), 1000),
             }}
             baseProps={{
-              variant: 'danger',
+              variant: "danger",
             }}
           >
             Revoke consent

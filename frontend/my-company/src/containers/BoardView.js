@@ -1,50 +1,50 @@
-import React, { useState, useEffect } from 'react'
-import { Spinner } from 'theme-ui'
-import { Container, PersonIdentityCard } from 'components'
-import { API } from 'utilities'
-import { faUsers } from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useEffect } from "react"
+import { Spinner } from "theme-ui"
+import { Container, PersonIdentityCard } from "components"
+import { API } from "utilities"
+import { faUsers } from "@fortawesome/free-solid-svg-icons"
 
-import demo1Img from 'assets/images/demo-person/demo-1.jpg'
-import demo2Img from 'assets/images/demo-person/demo-2.jpg'
-import demo3Img from 'assets/images/demo-person/demo-3.jpg'
-import demo4Img from 'assets/images/demo-person/demo-4.jpg'
-import demo5Img from 'assets/images/demo-person/demo-5.jpg'
+import demo1Img from "assets/images/demo-person/demo-1.jpg"
+import demo2Img from "assets/images/demo-person/demo-2.jpg"
+import demo3Img from "assets/images/demo-person/demo-3.jpg"
+import demo4Img from "assets/images/demo-person/demo-4.jpg"
+import demo5Img from "assets/images/demo-person/demo-5.jpg"
 
 const userMap = {
-  'James Jaatinen': {
-    title: 'Chairman',
+  "James Jaatinen": {
+    title: "Chairman",
     image: demo3Img,
     socials: {
       twitter: true,
       linkedin: true,
     },
   },
-  'Brenda Taylor': {
-    title: 'Member',
+  "Brenda Taylor": {
+    title: "Member",
     image: demo1Img,
     socials: {
       twitter: true,
       linkedin: true,
     },
   },
-  'Mike Olsen': {
-    title: 'Member',
+  "Mike Olsen": {
+    title: "Member",
     image: demo2Img,
     socials: {
       twitter: false,
       linkedin: true,
     },
   },
-  'Mina Leef': {
-    title: 'Member',
+  "Mina Leef": {
+    title: "Member",
     image: demo4Img,
     socials: {
       twitter: false,
       linkedin: true,
     },
   },
-  'Yost Robinson': {
-    title: 'Member',
+  "Yost Robinson": {
+    title: "Member",
     image: demo5Img,
     socials: {
       twitter: true,
@@ -57,13 +57,13 @@ function BoardView({ company = {} }) {
   const [boardMembersRequestData, setBoardMembersRequestData] = useState({
     boardMembers: [],
     isLoading: true,
-    error: '',
+    error: "",
   })
 
   useEffect(() => {
     ;(async () => {
-      if (company.hasOwnProperty('businessId')) {
-        const { ok, data, error } = await API.listLinks(company.boardGroupId, 'in')
+      if (company.hasOwnProperty("businessId")) {
+        const { ok, data, error } = await API.listLinks(company.boardGroupId, "in")
 
         if (ok) {
           const boardMembers = []
@@ -77,7 +77,7 @@ function BoardView({ company = {} }) {
             }
           }
 
-          setBoardMembersRequestData({ boardMembers, error: '', isLoading: false })
+          setBoardMembersRequestData({ boardMembers, error: "", isLoading: false })
         } else {
           setBoardMembersRequestData({ boardMembers: [], error, isLoading: false })
         }
@@ -88,11 +88,11 @@ function BoardView({ company = {} }) {
   return (
     <Container
       csx={{
-        variant: ['flex.columnCenterNoMargin', 'flex.row'],
+        variant: ["flex.columnCenterNoMargin", "flex.row"],
         mt: [3, null],
       }}
     >
-      {boardMembersRequestData.isLoading && <Spinner sx={{ m: 3, mx: 'auto' }} />}
+      {boardMembersRequestData.isLoading && <Spinner sx={{ m: 3, mx: "auto" }} />}
 
       {boardMembersRequestData.boardMembers.map((bm) => {
         return (

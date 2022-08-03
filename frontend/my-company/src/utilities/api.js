@@ -1,12 +1,12 @@
-import { getPublicUrl, ConsentTokenManager } from 'utilities'
+import { getPublicUrl, ConsentTokenManager } from "utilities"
 
 class API {
-  baseUrl = ''
-  defaultErrorMessage = 'Oops, something went wrong.'
+  baseUrl = ""
+  defaultErrorMessage = "Oops, something went wrong."
 
   constructor() {
-    this.baseUrl = '/api'
-    this.returnUrl = '/company-select'
+    this.baseUrl = "/api"
+    this.returnUrl = "/company-select"
   }
 
   async responseWrapper(r) {
@@ -30,9 +30,9 @@ class API {
   async health() {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/health`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
     )
@@ -41,9 +41,9 @@ class API {
   async getIdentity(id) {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/identities/${id}`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
     )
@@ -52,9 +52,9 @@ class API {
   async updateConsent(from, to, data) {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/consents/from/${from}/to/${to}`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           data,
@@ -66,9 +66,9 @@ class API {
   async readConsent(from, to) {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/consents/from/${from}/to/${to}`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
     )
@@ -77,9 +77,9 @@ class API {
   async requestConsent(dataSource) {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/consents/request`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           dataSource,
@@ -88,14 +88,14 @@ class API {
     )
   }
 
-  async getCompanyBasicInfo(companyId, source = 'digitalliving') {
+  async getCompanyBasicInfo(companyId, source = "digitalliving") {
     return this.responseWrapper(
       await fetch(
         `${this.baseUrl}/dataProduct/draft/Company/BasicInfo?source=${source}`,
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({
             companyId,
@@ -105,16 +105,16 @@ class API {
     )
   }
 
-  async getOwnershipData(companyId, nexusBaseDomain, source = 'digitalliving:v2') {
+  async getOwnershipData(companyId, nexusBaseDomain, source = "digitalliving:v2") {
     return this.responseWrapper(
       await fetch(
         `${this.baseUrl}/dataProduct/draft/Company/Shareholders?source=${source}`,
         {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
-            'X-Consent-Token': ConsentTokenManager.getToken(
-              'draft/Company/Shareholders',
+            "Content-Type": "application/json",
+            "X-Consent-Token": ConsentTokenManager.getToken(
+              "draft/Company/Shareholders",
               source,
               nexusBaseDomain
             ),
@@ -130,9 +130,9 @@ class API {
   async startLogin() {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/auth/start_login`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           returnPath: `${getPublicUrl()}${this.returnUrl}`,
@@ -145,9 +145,9 @@ class API {
   async logout() {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/auth/logout`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
     )
@@ -156,9 +156,9 @@ class API {
   async getUserData() {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/auth/me`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
     )
@@ -167,9 +167,9 @@ class API {
   async getConfiguration() {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/configuration`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
     )
@@ -178,9 +178,9 @@ class API {
   async listLinks(id, direction) {
     return this.responseWrapper(
       await fetch(`${this.baseUrl}/identities/${id}/links/${direction}`, {
-        method: 'GET',
+        method: "GET",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
       })
     )

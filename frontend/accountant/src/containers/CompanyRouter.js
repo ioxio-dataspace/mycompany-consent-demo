@@ -1,17 +1,17 @@
-import React from 'react'
-import { LayoutRow } from 'components'
-import { useParams } from 'react-router-dom'
-import { Switch, Route, useRouteMatch } from 'react-router-dom'
+import React from "react"
+import { LayoutRow } from "components"
+import { useParams } from "react-router-dom"
+import { Switch, Route, useRouteMatch } from "react-router-dom"
 
-import CompanyView from 'containers/CompanyView'
-import Error from 'containers/Error'
+import CompanyView from "containers/CompanyView"
+import Error from "containers/Error"
 
 function CompanyRouter({ userData, configuration = [] }) {
   const { businessId } = useParams()
   let { path } = useRouteMatch()
   const company = configuration.companies.find((c) => c.businessId === businessId)
 
-  if (typeof company === 'undefined') {
+  if (typeof company === "undefined") {
     return <Error />
   }
 
@@ -21,7 +21,7 @@ function CompanyRouter({ userData, configuration = [] }) {
       headerSubtitle={company.companyForm}
       companyLogo={company.image}
       userData={userData}
-      id={'home-page'}
+      id={"home-page"}
     >
       <Switch>
         <Route exact path={path}>

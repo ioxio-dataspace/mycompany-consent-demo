@@ -1,9 +1,9 @@
 class ConsentTokenManager {
-  localKey = 'consentToken'
+  localKey = "consentToken"
 
   getToken(standard, source, nexusBaseDomain) {
     const uri = this.makeDppUri(standard, source, nexusBaseDomain)
-    return localStorage.getItem(`${this.localKey}-${uri}`) || ''
+    return localStorage.getItem(`${this.localKey}-${uri}`) || ""
   }
 
   setToken(standard, source, nexusBaseDomain, token) {

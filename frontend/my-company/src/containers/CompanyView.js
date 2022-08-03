@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from 'react'
-import { Spinner } from 'theme-ui'
-import { CompanyBasicInfo, Container, Text, DataProduct, ShareModal } from 'components'
-import { API } from 'utilities'
+import React, { useState, useEffect } from "react"
+import { Spinner } from "theme-ui"
+import { CompanyBasicInfo, Container, Text, DataProduct, ShareModal } from "components"
+import { API } from "utilities"
 
-import prhLogo from 'assets/images/prh-logo.png'
-import myBisLogo from 'assets/images/mybis-dark-logo.svg'
+import prhLogo from "assets/images/prh-logo.png"
+import myBisLogo from "assets/images/mybis-dark-logo.svg"
 
 const DATA_PRODUCTS = [
   {
-    name: 'Business register extract',
-    description: 'Finnish Patent and Registration Office',
+    name: "Business register extract",
+    description: "Finnish Patent and Registration Office",
     isForSharing: true,
     image: prhLogo,
   },
   {
-    name: 'Articles of Association',
-    description: 'Finnish Patent and Registration Office',
+    name: "Articles of Association",
+    description: "Finnish Patent and Registration Office",
     image: prhLogo,
   },
   {
-    name: 'Memorandum of Establishment',
-    description: 'mybis register',
+    name: "Memorandum of Establishment",
+    description: "mybis register",
     image: myBisLogo,
   },
   {
-    name: 'Company restrictions',
-    description: 'mybis register',
+    name: "Company restrictions",
+    description: "mybis register",
     image: myBisLogo,
   },
 ]
@@ -47,7 +47,7 @@ function CompanyView({ company = {}, configuration = {} }) {
 
   useEffect(() => {
     ;(async () => {
-      if (company.hasOwnProperty('businessId')) {
+      if (company.hasOwnProperty("businessId")) {
         const { ok, data, error } = await API.getCompanyBasicInfo(company.businessId)
         if (ok) {
           setBasicCompanyInfoRequestData({ basicInfo: data, isLoading: false })
@@ -61,17 +61,17 @@ function CompanyView({ company = {}, configuration = {} }) {
   return (
     <Container
       csx={{
-        variant: ['flex.column', 'flex.column', 'flex.row'],
-        flexWrap: 'wrap',
-        justifyContent: [null, null, 'space-between'],
+        variant: ["flex.column", "flex.column", "flex.row"],
+        flexWrap: "wrap",
+        justifyContent: [null, null, "space-between"],
       }}
     >
       <Container
         csx={{
-          variant: 'flex.columnCenterNoMargin',
+          variant: "flex.columnCenterNoMargin",
           mb: [5],
-          justifyContent: 'start',
-          flex: '40%',
+          justifyContent: "start",
+          flex: "40%",
         }}
       >
         {basicCompanyInfoRequestData.basicInfo && (
@@ -86,14 +86,14 @@ function CompanyView({ company = {}, configuration = {} }) {
       </Container>
       <Container
         csx={{
-          variant: 'flex.columnCenterNoMargin',
-          justifyContent: 'start',
-          alignItems: 'start',
+          variant: "flex.columnCenterNoMargin",
+          justifyContent: "start",
+          alignItems: "start",
           mt: [5, 5, 0],
-          flex: '0 0 23rem',
+          flex: "0 0 23rem",
         }}
       >
-        <Text csx={{ variant: 'text.sectionHeader' }}>DATA</Text>
+        <Text csx={{ variant: "text.sectionHeader" }}>DATA</Text>
 
         <Container csx={{ mt: [3] }}>
           {DATA_PRODUCTS.map((d) => {
@@ -118,7 +118,7 @@ function CompanyView({ company = {}, configuration = {} }) {
         shareOptions={configuration.shareOptions}
         shareFrom={company.id}
         dataProduct={dataProductToShare}
-        isOpen={dataProductToShare.hasOwnProperty('name')}
+        isOpen={dataProductToShare.hasOwnProperty("name")}
         onCloseClick={onModalCloseClick}
       />
     </Container>

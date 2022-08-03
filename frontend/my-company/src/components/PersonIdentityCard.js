@@ -1,58 +1,58 @@
 /** @jsx jsx */
-import { Card, Image, Spinner, Flex, jsx } from 'theme-ui'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import { faTwitterSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { Card, Image, Spinner, Flex, jsx } from "theme-ui"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import { faTimesCircle } from "@fortawesome/free-solid-svg-icons"
+import { faTwitterSquare, faLinkedin } from "@fortawesome/free-brands-svg-icons"
 
-import { Text, Container } from 'components'
-import Theme from 'theme'
+import { Text, Container } from "components"
+import Theme from "theme"
 
 const STYLE = {
   ...Theme.transitions.onHover.default,
-  width: ['10rem'],
-  bg: 'white',
-  borderRadius: 'xlg',
+  width: ["10rem"],
+  bg: "white",
+  borderRadius: "xlg",
 }
 
 const imageSx = {
-  maxWidth: ['80%'],
-  borderRadius: 'circle',
+  maxWidth: ["80%"],
+  borderRadius: "circle",
   my: [3],
 }
 
 const cardContentSx = {
-  variant: 'flex.columnCenter',
+  variant: "flex.columnCenter",
 }
 
 const textStyles = {
   title: {
-    variant: 'text.notice',
+    variant: "text.notice",
     pt: [4],
-    borderTop: 'menuItem',
+    borderTop: "menuItem",
   },
   idText: {
-    variant: 'text.mute',
+    variant: "text.mute",
     mt: 4,
   },
   jobTitle: {
-    variant: 'text.mute',
+    variant: "text.mute",
   },
 }
 
 const errorContainerSx = {
-  variant: 'flex.columnCenter',
+  variant: "flex.columnCenter",
   svg: {
-    color: 'danger',
+    color: "danger",
   },
-  '.error-text': {
-    variant: 'text.notice',
+  ".error-text": {
+    variant: "text.notice",
     my: 3,
-    textAlign: 'center',
+    textAlign: "center",
   },
 }
 
-export default ({ identity = {}, baseProps = {}, error = '', csx }) => {
-  const isLoading = !identity.hasOwnProperty('data')
+export default ({ identity = {}, baseProps = {}, error = "", csx }) => {
+  const isLoading = !identity.hasOwnProperty("data")
 
   const CardContentContainer = ({ children }) => (
     <Flex className="card-content-container" sx={cardContentSx}>
@@ -67,7 +67,7 @@ export default ({ identity = {}, baseProps = {}, error = '', csx }) => {
           <FontAwesomeIcon size="3x" className="button-icon" icon={faTimesCircle} />
           <Text
             baseProps={{
-              className: 'error-text',
+              className: "error-text",
             }}
           >
             Couldn't load this identity.
@@ -82,7 +82,7 @@ export default ({ identity = {}, baseProps = {}, error = '', csx }) => {
     <CardContentContainer>
       <Image
         sx={imageSx}
-        alt={'Identity image for ' + identity.name}
+        alt={"Identity image for " + identity.name}
         src={identity.data.image}
       />
       <Text csx={textStyles.title}>{identity.data.name}</Text>
@@ -92,8 +92,8 @@ export default ({ identity = {}, baseProps = {}, error = '', csx }) => {
 
       <Container
         csx={{
-          variant: 'flex.rowCenter',
-          width: ['30%'],
+          variant: "flex.rowCenter",
+          width: ["30%"],
           mt: 4,
           mb: 2,
         }}
