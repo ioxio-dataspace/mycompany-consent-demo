@@ -1,17 +1,17 @@
 /** @jsx jsx */
-import { useState } from 'react'
-import { Button, jsx } from 'theme-ui'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { useState } from "react"
+import { Button, jsx } from "theme-ui"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
   faCheckCircle,
   faSpinner,
   faTimesCircle,
-} from '@fortawesome/free-solid-svg-icons'
-import classNames from 'classnames'
+} from "@fortawesome/free-solid-svg-icons"
+import classNames from "classnames"
 
 const STYLE = {
   fontSize: [1, 2],
-  '.button-icon': {
+  ".button-icon": {
     mr: 2,
   },
 }
@@ -19,9 +19,9 @@ const STYLE = {
 const ASYNC_ON_CLICK = {
   asyncFn: () => false,
   onAsyncFinish: () => false,
-  loadingText: 'Loading...',
-  successText: 'Complete!',
-  failText: 'Failed!',
+  loadingText: "Loading...",
+  successText: "Complete!",
+  failText: "Failed!",
   resetStateTimeOut: 0,
   setErrorCb: (res, setError, setSuccess) => false,
 }
@@ -39,7 +39,7 @@ export default ({
   const [isSuccess, setIsSuccess] = useState(false)
   const [isError, setIsError] = useState(false)
 
-  if (typeof asyncOnClick !== 'undefined') {
+  if (typeof asyncOnClick !== "undefined") {
     asyncOnClick = {
       ...ASYNC_ON_CLICK,
       ...asyncOnClick,
@@ -49,16 +49,16 @@ export default ({
   const onClickWrapper = async (e) => {
     e.preventDefault()
 
-    if (typeof onClick === 'function') {
+    if (typeof onClick === "function") {
       const target = e.target
-      target.classList.add('active')
+      target.classList.add("active")
 
       setTimeout(() => {
-        target.classList.remove('active')
+        target.classList.remove("active")
       }, 100)
 
       onClick(e)
-    } else if (typeof asyncOnClick !== 'undefined') {
+    } else if (typeof asyncOnClick !== "undefined") {
       setIsLoading(true)
 
       const res = await asyncOnClick.asyncFn()
@@ -68,7 +68,7 @@ export default ({
       if (res.ok) {
         setIsSuccess(true)
       } else {
-        if (typeof asyncOnClick?.setErrorCb !== 'undefined') {
+        if (typeof asyncOnClick?.setErrorCb !== "undefined") {
           asyncOnClick.setErrorCb(
             res,
             setIsError.bind(this, true),
@@ -92,7 +92,7 @@ export default ({
   }
 
   let buttonTextContent =
-    typeof children === 'string' ? <span>{children}</span> : children
+    typeof children === "string" ? <span>{children}</span> : children
 
   if (isLoading) {
     buttonTextContent = <span>{asyncOnClick.loadingText}</span>
@@ -101,7 +101,7 @@ export default ({
   if (isSuccess) {
     csx = {
       ...csx,
-      variant: 'buttons.success',
+      variant: "buttons.success",
     }
 
     buttonTextContent = <span>{asyncOnClick.successText}</span>
@@ -110,7 +110,7 @@ export default ({
   if (isError) {
     csx = {
       ...csx,
-      variant: 'buttons.danger',
+      variant: "buttons.danger",
     }
 
     buttonTextContent = <span>{asyncOnClick.failText}</span>
@@ -118,7 +118,7 @@ export default ({
 
   return (
     <Button
-      className={classNames('button-component', className)}
+      className={classNames("button-component", className)}
       disabled={isSuccess || isLoading || isError || isDisabled}
       onClick={onClickWrapper}
       sx={{ ...STYLE, ...csx }}

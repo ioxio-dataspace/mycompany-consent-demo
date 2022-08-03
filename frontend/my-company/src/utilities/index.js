@@ -1,12 +1,12 @@
-import API from 'utilities/api'
-import ConsentTokenManager from 'utilities/consentTokenManager'
+import API from "utilities/api"
+import ConsentTokenManager from "utilities/consentTokenManager"
 
 const getPublicUrl = () => {
   /* eslint-disable no-undef */
-  if (process && process.env && typeof process.env.PUBLIC_URL === 'string') {
+  if (process && process.env && typeof process.env.PUBLIC_URL === "string") {
     return process.env.PUBLIC_URL
   } else {
-    return '/'
+    return "/"
   }
   /* eslint-enable no-undef */
 }

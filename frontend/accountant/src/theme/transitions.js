@@ -6,22 +6,22 @@ transitions = {
   ...transitions,
   onHover: {
     default: {
-      transition: transitions.setDefault('transform'),
-      cursor: 'pointer',
-      '&:hover': {
-        transform: 'scale(1.0125)',
+      transition: transitions.setDefault("transform"),
+      cursor: "pointer",
+      "&:hover": {
+        transform: "scale(1.0125)",
       },
     },
     brightness: {
-      cursor: 'pointer',
-      '&:hover': {
-        filter: 'brightness(0.5)',
+      cursor: "pointer",
+      "&:hover": {
+        filter: "brightness(0.5)",
       },
     },
     brightnessFn: (value) => {
       return {
-        cursor: 'pointer',
-        '&:hover': {
+        cursor: "pointer",
+        "&:hover": {
           filter: `brightness(${value})`,
         },
       }

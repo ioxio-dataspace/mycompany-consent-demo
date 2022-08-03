@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { Link } from 'react-router-dom'
+import { jsx } from "theme-ui"
+import { Link } from "react-router-dom"
 
-export default ({ children, to = '/', csx }) => {
+export default ({ children, to = "/", csx }) => {
   return (
     <Link
       sx={csx}

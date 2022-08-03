@@ -1,12 +1,12 @@
-import React from 'react'
-import { LayoutRow } from 'components'
-import { useParams } from 'react-router-dom'
-import { Switch, Route, useRouteMatch } from 'react-router-dom'
+import React from "react"
+import { LayoutRow } from "components"
+import { useParams } from "react-router-dom"
+import { Switch, Route, useRouteMatch } from "react-router-dom"
 
-import CompanyView from 'containers/CompanyView'
-import BoardView from 'containers/BoardView'
-import OwnershipView from 'containers/OwnershipView'
-import CompanySearchView from 'containers/CompanySearchView'
+import CompanyView from "containers/CompanyView"
+import BoardView from "containers/BoardView"
+import OwnershipView from "containers/OwnershipView"
+import CompanySearchView from "containers/CompanySearchView"
 
 function CompanyRouter({ userData, configuration = [] }) {
   const { businessId } = useParams()
@@ -20,7 +20,7 @@ function CompanyRouter({ userData, configuration = [] }) {
       headerSubtitle={company.companyForm}
       companyLogo={company.image}
       userData={userData}
-      id={'home-page'}
+      id={"home-page"}
     >
       <Switch>
         <Route exact path={path}>

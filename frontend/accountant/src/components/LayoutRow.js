@@ -1,8 +1,8 @@
 /** @jsx jsx */
-import { Flex, Image, jsx } from 'theme-ui'
-import { VerticalMenu, PageHeader } from 'components'
-import { Global, css } from '@emotion/core'
-import sibLogo from 'assets/images/mybis-logo.svg'
+import { Flex, Image, jsx } from "theme-ui"
+import { VerticalMenu, PageHeader } from "components"
+import { Global, css } from "@emotion/core"
+import sibLogo from "assets/images/mybis-logo.svg"
 
 const GLOBAL = css(`
   html, body, #root, .page-container {
@@ -16,16 +16,16 @@ const GLOBAL = css(`
 `)
 
 const pageContainer = {
-  variant: ['flex.row'],
-  display: ['flex'],
+  variant: ["flex.row"],
+  display: ["flex"],
 }
 
 const mainContainerSx = {
-  variant: 'flex.column',
-  width: '100%',
-  bg: 'main.bg',
+  variant: "flex.column",
+  width: "100%",
+  bg: "main.bg",
   px: [4, 7],
-  minHeight: '100%',
+  minHeight: "100%",
 }
 
 const mainContentNoHeaderSx = {
@@ -67,9 +67,9 @@ export default ({
           />
         )}
         {children}
-        <div sx={{ alignSelf: 'center', marginTop: 'auto' }}>
+        <div sx={{ alignSelf: "center", marginTop: "auto" }}>
           <Image
-            sx={{ height: '1rem', marginTop: [5], marginBottom: [4] }}
+            sx={{ height: "1rem", marginTop: [5], marginBottom: [4] }}
             src={sibLogo}
           />
         </div>

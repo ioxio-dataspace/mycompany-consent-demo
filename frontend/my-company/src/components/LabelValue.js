@@ -1,15 +1,15 @@
 /** @jsx jsx */
-import { jsx } from 'theme-ui'
-import { Container, Text } from 'components'
+import { jsx } from "theme-ui"
+import { Container, Text } from "components"
 
 const STYLE = {
-  variant: 'flex.row',
+  variant: "flex.row",
   m: 1,
 }
 
 const labelSx = {
-  variant: 'text.bold',
-  minWidth: ['12rem'],
+  variant: "text.bold",
+  minWidth: ["12rem"],
 }
 
 const valueSx = {}

@@ -1,64 +1,64 @@
-import React, { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import React, { useState, useEffect } from "react"
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom"
 
-import CompanyRouter from 'containers/CompanyRouter'
-import Login from 'containers/Login'
-import Error from 'containers/Error'
-import CompanySelect from 'containers/CompanySelect'
-import InitialLoading from 'containers/InitialLoading'
+import CompanyRouter from "containers/CompanyRouter"
+import Login from "containers/Login"
+import Error from "containers/Error"
+import CompanySelect from "containers/CompanySelect"
+import InitialLoading from "containers/InitialLoading"
 
-import { ProtectedRoute } from 'components'
+import { ProtectedRoute } from "components"
 
-import person1Img from 'assets/images/person-1.jpg'
+import person1Img from "assets/images/person-1.jpg"
 
-import { API, getPublicUrl, getRandom } from 'utilities'
+import { API, getPublicUrl, getRandom } from "utilities"
 
-import { ThemeProvider } from 'theme-ui'
-import theme from 'theme'
+import { ThemeProvider } from "theme-ui"
+import theme from "theme"
 
-import aSturtupAbLogo from 'assets/images/a-company-logo.png'
-import DLILogo from 'assets/images/dli-logo.png'
+import aSturtupAbLogo from "assets/images/a-company-logo.png"
+import DLILogo from "assets/images/dli-logo.png"
 
 const companyMap = {
-  '2464491-9': {
-    name: 'Digital Living International Oy',
+  "2464491-9": {
+    name: "Digital Living International Oy",
     image: DLILogo,
-    companyForm: 'Limited company',
+    companyForm: "Limited company",
     basicInfo: {
-      municipality: 'ESPOO',
-      language: 'Finnish',
-      mainLine: 'Computer programming activities (62010)',
-      postalAddress: 'c/o James Jaatinen Fredrikinkatu 34 A 17 00100 HELSINKI',
-      streetAddress: 'Fredrikinkatu 34 A 17 00100 HELSINKI',
-      www: 'www.digitalliving.fi',
-      mobilePhone: '+358505245730',
+      municipality: "ESPOO",
+      language: "Finnish",
+      mainLine: "Computer programming activities (62010)",
+      postalAddress: "c/o James Jaatinen Fredrikinkatu 34 A 17 00100 HELSINKI",
+      streetAddress: "Fredrikinkatu 34 A 17 00100 HELSINKI",
+      www: "www.digitalliving.fi",
+      mobilePhone: "+358505245730",
     },
   },
-  '0522908-2': {
-    name: 'Oy Startup Ab',
+  "0522908-2": {
+    name: "Oy Startup Ab",
     image: aSturtupAbLogo,
-    companyForm: 'Limited company',
+    companyForm: "Limited company",
     basicInfo: {
-      municipality: 'TUUSULA',
-      language: 'Finnish',
-      mainLine: 'Letting of dwellings (68201)',
-      postalAddress: 'KIRKKOTIE 37 04310 TUUSULA',
-      streetAddress: 'N/A',
-      www: 'N/A',
-      mobilePhone: 'N/A',
+      municipality: "TUUSULA",
+      language: "Finnish",
+      mainLine: "Letting of dwellings (68201)",
+      postalAddress: "KIRKKOTIE 37 04310 TUUSULA",
+      streetAddress: "N/A",
+      www: "N/A",
+      mobilePhone: "N/A",
     },
   },
 }
 const demoCompanies = [
   {
-    name: 'Another Company Oy',
+    name: "Another Company Oy",
     image: aSturtupAbLogo,
-    companyForm: 'Limited company',
+    companyForm: "Limited company",
   },
   {
-    name: 'Next Company Oy',
+    name: "Next Company Oy",
     image: aSturtupAbLogo,
-    companyForm: 'Limited company',
+    companyForm: "Limited company",
   },
 ]
 
@@ -66,7 +66,7 @@ function App() {
   const [userData, setUserData] = useState({})
   const [isInitialLoading, setIsInitialLoading] = useState(true)
   const [configurationDataRequest, setConfigurationDataRequest] = useState({
-    error: '',
+    error: "",
     companies: [],
     shareOptions: [],
   })
@@ -83,9 +83,9 @@ function App() {
         // TODO: Demo grade
         let userData = {
           ...data,
-          name: 'Minna Multanen',
+          name: "Minna Multanen",
           image: getRandom(avatars),
-          jobTitle: 'Accountant',
+          jobTitle: "Accountant",
         }
 
         ;(async () => {
@@ -102,7 +102,7 @@ function App() {
             configuration.companies = [...configuration.companies, ...demoCompanies]
 
             const accountantOption = configuration.shareOptions
-              .find((s) => s.label === 'Person')
+              .find((s) => s.label === "Person")
               .options.find((p) => p.label === userData.name)
 
             userData = {
@@ -129,7 +129,7 @@ function App() {
   if (!isInitialLoading) {
     routes = (
       <Switch>
-        <Route exact path={['/', '/login']} component={Login} />
+        <Route exact path={["/", "/login"]} component={Login} />
 
         <ProtectedRoute
           userData={userData}

@@ -1,6 +1,6 @@
 /** @jsx jsx */
-import { jsx, Spinner } from 'theme-ui'
-import { useState, useEffect } from 'react'
+import { jsx, Spinner } from "theme-ui"
+import { useState, useEffect } from "react"
 import {
   Container,
   DataProduct,
@@ -8,24 +8,24 @@ import {
   ShareModal,
   OwnershipDataTable,
   Button,
-} from 'components'
-import { API, ConsentTokenManager } from 'utilities'
+} from "components"
+import { API, ConsentTokenManager } from "utilities"
 
-import prhLogo from 'assets/images/prh-logo.png'
-import myBisLogo from 'assets/images/mybis-dark-logo.svg'
+import prhLogo from "assets/images/prh-logo.png"
+import myBisLogo from "assets/images/mybis-dark-logo.svg"
 
-const STANDARD = 'draft/Company/Shareholders'
-const DATA_SOURCE = 'digitalliving:v2'
+const STANDARD = "draft/Company/Shareholders"
+const DATA_SOURCE = "digitalliving:v2"
 
 const DATA_PRODUCTS = [
   {
-    name: 'Beneficial owners',
-    description: 'Finnish Patent and Registration Office',
+    name: "Beneficial owners",
+    description: "Finnish Patent and Registration Office",
     image: prhLogo,
   },
   {
-    name: 'List of shareholders',
-    description: 'mybis register',
+    name: "List of shareholders",
+    description: "mybis register",
     isForSharing: true,
     image: myBisLogo,
   },
@@ -36,7 +36,7 @@ function OwnershipView({ company = {}, configuration = {} }) {
     owners: [],
     shareSeries: [],
     isLoading: true,
-    error: '',
+    error: "",
   })
 
   const [dataProductToShare, setDataProductToShare] = useState({})
@@ -65,13 +65,13 @@ function OwnershipView({ company = {}, configuration = {} }) {
     const resp = await API.requestConsent(dppUri)
 
     // need to redirect user to verification page of Consent provider
-    if (resp.ok && resp.data.type === 'verifyUserConsent') {
-      const currentUrl = window.location.href.split('?')[0]
+    if (resp.ok && resp.data.type === "verifyUserConsent") {
+      const currentUrl = window.location.href.split("?")[0]
       setVerifyConsentUrl(`${resp.data.verifyUrl}?returnUrl=${currentUrl}`)
     }
 
     // consent is granted, save consent token
-    else if (resp.ok && resp.data.type === 'consentGranted') {
+    else if (resp.ok && resp.data.type === "consentGranted") {
       ConsentTokenManager.setToken(
         STANDARD,
         DATA_SOURCE,
@@ -90,7 +90,7 @@ function OwnershipView({ company = {}, configuration = {} }) {
 
   useEffect(() => {
     ;(async () => {
-      if (company.hasOwnProperty('businessId')) {
+      if (company.hasOwnProperty("businessId")) {
         const { ok, status, data, error } = await API.getOwnershipData(
           company.businessId,
           configuration.nexusBaseDomain
@@ -103,7 +103,7 @@ function OwnershipView({ company = {}, configuration = {} }) {
           setOwnershipData({
             owners: data.owners,
             shareSeries: data.shareSeries,
-            error: '',
+            error: "",
             isLoading: false,
           })
         } else {
@@ -127,7 +127,7 @@ function OwnershipView({ company = {}, configuration = {} }) {
         (ss) => ss.seriesName === os.seriesName
       )
 
-      if (typeof series !== 'undefined') {
+      if (typeof series !== "undefined") {
         o.totalVotes += os.quantity * series.votesPerShare
       }
     })
@@ -144,22 +144,22 @@ function OwnershipView({ company = {}, configuration = {} }) {
   return (
     <Container
       csx={{
-        variant: ['flex.column', 'flex.column', 'flex.row'],
-        flexWrap: 'wrap',
-        justifyContent: [null, null, 'space-between'],
+        variant: ["flex.column", "flex.column", "flex.row"],
+        flexWrap: "wrap",
+        justifyContent: [null, null, "space-between"],
       }}
     >
       <Container
         csx={{
-          variant: 'flex.columnCenterNoMargin',
+          variant: "flex.columnCenterNoMargin",
           mb: [5],
-          justifyContent: 'start',
-          flex: '40%',
+          justifyContent: "start",
+          flex: "40%",
         }}
       >
         {ownershipData.isLoading && <Spinner sx={{ m: 3 }} />}
         {verifyConsentUrl && (
-          <Container csx={{ variant: 'flex.columnCenter' }}>
+          <Container csx={{ variant: "flex.columnCenter" }}>
             <Text>Data source requires a consent to view this data</Text>
             <Button csx={{ mt: 2 }} onClick={onRequestConsentClick}>
               Request consent
@@ -173,14 +173,14 @@ function OwnershipView({ company = {}, configuration = {} }) {
 
       <Container
         csx={{
-          variant: 'flex.columnCenterNoMargin',
-          justifyContent: 'start',
-          alignItems: 'start',
+          variant: "flex.columnCenterNoMargin",
+          justifyContent: "start",
+          alignItems: "start",
           mt: [5, 5, 0],
-          flex: '0 0 23rem',
+          flex: "0 0 23rem",
         }}
       >
-        <Text csx={{ variant: 'text.sectionHeader' }}>DATA</Text>
+        <Text csx={{ variant: "text.sectionHeader" }}>DATA</Text>
 
         <Container csx={{ mt: [3] }}>
           {DATA_PRODUCTS.map((d) => {
@@ -205,7 +205,7 @@ function OwnershipView({ company = {}, configuration = {} }) {
         shareOptions={configuration.shareOptions}
         shareFrom={company.id}
         dataProduct={dataProductToShare}
-        isOpen={dataProductToShare.hasOwnProperty('name')}
+        isOpen={dataProductToShare.hasOwnProperty("name")}
         onCloseClick={onModalCloseClick}
       />
     </Container>

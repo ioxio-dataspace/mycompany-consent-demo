@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { LayoutRow, CompanyCardHorizontal, Container, Heading } from 'components'
-import { API } from 'utilities'
+import React, { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
+import { LayoutRow, CompanyCardHorizontal, Container, Heading } from "components"
+import { API } from "utilities"
 
 function CompanySelect({ userData, configuration = {} }) {
   const history = useHistory()
@@ -44,14 +44,14 @@ function CompanySelect({ userData, configuration = {} }) {
     <LayoutRow
       headerTitle=""
       userData={userData}
-      activeMenuItem={'Select company'}
-      id={'company-select'}
+      activeMenuItem={"Select company"}
+      id={"company-select"}
       hideMenu={true}
     >
-      <Heading baseProps={{ as: 'h2' }} csx={{ mb: 4 }}>
+      <Heading baseProps={{ as: "h2" }} csx={{ mb: 4 }}>
         Shared data with you ({companiesProvidedConsent.length}):
       </Heading>
-      <Container csx={{ variant: 'flex.columnCenterNoMargin' }}>
+      <Container csx={{ variant: "flex.columnCenterNoMargin" }}>
         {companiesProvidedConsent.map((c) => {
           return (
             c.consentData && (
@@ -64,11 +64,11 @@ function CompanySelect({ userData, configuration = {} }) {
           )
         })}
       </Container>
-      <Heading baseProps={{ as: 'h2' }} csx={{ mb: 4 }}>
+      <Heading baseProps={{ as: "h2" }} csx={{ mb: 4 }}>
         Waiting for data (
         {configuration.companies.length - companiesProvidedConsent.length}):
       </Heading>
-      <Container csx={{ variant: 'flex.columnCenterNoMargin' }}>
+      <Container csx={{ variant: "flex.columnCenterNoMargin" }}>
         {configuration.companies.map((c) => {
           return (
             !c.consentData && (

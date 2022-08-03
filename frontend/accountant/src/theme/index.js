@@ -1,6 +1,6 @@
 // Based on bootstrap preset https://github.com/system-ui/theme-ui/blob/master/packages/preset-bootstrap/src/index.ts
 
-import { baseColors, colors } from 'theme/colors'
+import { baseColors, colors } from "theme/colors"
 import {
   fontWeights,
   fonts,
@@ -8,13 +8,13 @@ import {
   fontSizes,
   heading,
   typeStyles,
-} from 'theme/typography'
-import { variants } from 'theme/variants'
-import { transitions } from 'theme/transitions'
+} from "theme/typography"
+import { variants } from "theme/variants"
+import { transitions } from "theme/transitions"
 
-const space = [0, 0.25, 0.5, 1, 1.5, 3, 5, 7.5, 10, 20].map((n) => n + 'rem')
+const space = [0, 0.25, 0.5, 1, 1.5, 3, 5, 7.5, 10, 20].map((n) => n + "rem")
 
-const breakpoints = ['576px', '768px', '992px', '1200px']
+const breakpoints = ["576px", "768px", "992px", "1200px"]
 
 const sizes = {
   // container widths
@@ -25,39 +25,39 @@ const sizes = {
 }
 
 const radii = {
-  default: '0rem',
-  sm: '0rem',
-  lg: '0.3rem',
-  xlg: '1rem',
-  circle: '100%',
-  pill: '50rem',
-  zero: '0',
+  default: "0rem",
+  sm: "0rem",
+  lg: "0.3rem",
+  xlg: "1rem",
+  circle: "100%",
+  pill: "50rem",
+  zero: "0",
 }
 
 const shadows = {
-  default: '0 .5rem 1rem rgba(0, 0, 0, .15)',
-  sm: '0 .125rem .25rem rgba(0, 0, 0, .075)',
-  lg: '0 1rem 3rem rgba(0, 0, 0, .175)',
+  default: "0 .5rem 1rem rgba(0, 0, 0, .15)",
+  sm: "0 .125rem .25rem rgba(0, 0, 0, .075)",
+  lg: "0 1rem 3rem rgba(0, 0, 0, .175)",
 }
 
 const styles = {
   root: {
-    fontFamily: 'body',
-    lineHeight: 'body',
-    fontWeight: 'body',
-    WebkitFontSmoothing: 'antialiased',
-    MozOsxFontSmoothing: 'grayscale',
+    fontFamily: "body",
+    lineHeight: "body",
+    fontWeight: "body",
+    WebkitFontSmoothing: "antialiased",
+    MozOsxFontSmoothing: "grayscale",
   },
   a: {
-    color: 'primary',
-    textDecoration: 'none',
-    ':hover': {
-      textDecoration: 'underline',
+    color: "primary",
+    textDecoration: "none",
+    ":hover": {
+      textDecoration: "underline",
     },
   },
   p: {
     mb: 3,
-    lineHeight: 'body',
+    lineHeight: "body",
   },
   h1: {
     ...heading,
@@ -89,35 +89,35 @@ const styles = {
   },
   table: {
     // todo
-    width: '100%',
+    width: "100%",
     marginBottom: 3,
-    color: 'gray.9',
-    borderCollapse: 'collapse',
+    color: "gray.9",
+    borderCollapse: "collapse",
   },
   th: {
-    verticalAlign: 'bottom',
+    verticalAlign: "bottom",
     borderTopWidth: 2,
-    borderTopStyle: 'solid',
-    borderTopColor: 'gray.3',
+    borderTopStyle: "solid",
+    borderTopColor: "gray.3",
     borderBottomWidth: 2,
-    borderBottomStyle: 'solid',
-    borderBottomColor: 'gray.3',
-    padding: '.75rem',
-    textAlign: 'inherit',
+    borderBottomStyle: "solid",
+    borderBottomColor: "gray.3",
+    padding: ".75rem",
+    textAlign: "inherit",
   },
   td: {
     borderBottomWidth: 2,
-    borderBottomStyle: 'solid',
-    borderBottomColor: 'gray.3',
-    verticalAlign: 'top',
-    padding: '.75rem',
+    borderBottomStyle: "solid",
+    borderBottomColor: "gray.3",
+    verticalAlign: "top",
+    padding: ".75rem",
   },
   inlineCode: {
-    color: 'pink',
+    color: "pink",
   },
   img: {
-    maxWidth: '100%',
-    height: 'auto',
+    maxWidth: "100%",
+    height: "auto",
   },
 }
 
@@ -126,9 +126,9 @@ const layout = {
 }
 
 const borders = {
-  border: '1px solid ' + baseColors.gray[6],
-  borderSecondary: '1px solid ' + colors.secondary,
-  menuItem: '1px solid ' + baseColors.gray[2],
+  border: "1px solid " + baseColors.gray[6],
+  borderSecondary: "1px solid " + colors.secondary,
+  menuItem: "1px solid " + baseColors.gray[2],
 }
 
 export default {
