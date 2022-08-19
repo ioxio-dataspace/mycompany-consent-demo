@@ -21,6 +21,7 @@ firedantic = "^0.2.8"
 loguru = "^0.5.3"
 stringcase = "^1.2.0"
 pyjwt-key-fetcher = "^0.1.0"
+PyJWT = "^2.4.0"
 
 [tool.poetry.dev-dependencies]
 isort = "^5.5.3"
