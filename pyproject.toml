@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "mycompany-consent-demo"
+version = "1.0.0"
+description = "MyCompany consent demo"
+authors = ["Digital Living International Ltd"]
+license = "BSD-3-Clause"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+
+[tool.poetry.dev-dependencies]
+
+[tool.skjold]
+report_only = false
+sources = ["pyup", "gemnasium"]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
