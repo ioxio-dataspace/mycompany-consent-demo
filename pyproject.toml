@@ -1,10 +1,12 @@
 [tool.poetry]
 name = "mycompany-consent-demo"
-version = "0.1.0"
-description = ""
+version = "1.0.0"
+description = "MyCompany consent demo"
+authors = ["Digital Living International Ltd"]
+license = "BSD-3-Clause"
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.9"
 
 [tool.poetry.dev-dependencies]
 
