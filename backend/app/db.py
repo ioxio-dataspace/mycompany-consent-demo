@@ -20,7 +20,7 @@ def get_db() -> firestore.AsyncClient:
     """
     if environ.get("FIRESTORE_EMULATOR_HOST"):
         return firestore.AsyncClient(
-            project=conf.GOOGLE_PROJECT_NAME, credentials=_make_credentials()
+            project=conf.GCLOUD_PROJECT, credentials=_make_credentials()
         )
     else:
         return firestore.AsyncClient()
