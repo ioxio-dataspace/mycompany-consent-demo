@@ -15,13 +15,13 @@ def _is_local_env(env: str) -> bool:
 
 class Settings(BaseSettings):
     PROJECT_NAME: str = "MyCompany consent demo"
-    GOOGLE_PROJECT_NAME: str = "dli-demos"
+    GCLOUD_PROJECT: str = "ioxio-local-dev"
     DB_COLLECTION_PREFIX: str = "mycompany"
     ENV: str = "development"
     BASE_URL: AnyHttpUrl = "http://localhost:3000"
-    NEXUS_BASE_DOMAIN: str = "sandbox.digitalliving.fi"
+    NEXUS_BASE_DOMAIN: str = "sandbox.ioxio-dataspace.com"
 
-    CONSENT_PROVIDER_URL = "https://consent.sandbox.digitalliving.fi"
+    CONSENT_PROVIDER_URL = "https://consent.sandbox.ioxio-dataspace.com"
 
     LOG_LEVEL: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "DEBUG"
 
@@ -29,9 +29,9 @@ class Settings(BaseSettings):
 
     LE_API_URL: AnyHttpUrl = "http://192.168.99.100:31000"
     LE_APP_TOKEN: str = "ey..."
-    PRODUCT_GATEWAY_URL: AnyHttpUrl = "https://gateway.sandbox.digitalliving.fi"
+    PRODUCT_GATEWAY_URL: AnyHttpUrl = "https://gateway.sandbox.ioxio-dataspace.com"
 
-    OPENID_CONNECT_ISSUER: AnyHttpUrl = "https://login.sandbox.digitalliving.fi"
+    OPENID_CONNECT_ISSUER: AnyHttpUrl = "https://login.sandbox.ioxio-dataspace.com"
     OPENID_CONNECT_CLIENT_ID: str
     OPENID_CONNECT_CLIENT_SECRET: SecretStr
     OPENID_CONNECT_ACR_VALUES: str = "fake-auth"
