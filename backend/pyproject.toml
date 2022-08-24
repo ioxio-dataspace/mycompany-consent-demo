@@ -8,24 +8,24 @@ packages = [{include = "app", from="."}]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-fastapi = "^0.79.1"
-uvicorn = "^0.15.0"
-aiofiles = "^0.4.0"
-invoke = "^1.4.1"
+fastapi = "^0.80.0"
+uvicorn = "^0.18.2"
+aiofiles = "^0.8.0"
+invoke = "^1.7.1"
 httpx = "^0.23.0"
-mock = "^4.0.2"
+mock = "^4.0.3"
 python-multipart = "^0.0.5"
-pydantic = {extras = ["dotenv"], version = "^1.8.2"}
-cryptography = "^3.1"
+pydantic = {version = "^1.9.2", extras = ["dotenv"]}
+cryptography = "^37.0.4"
 firedantic = "^0.3.0"
-loguru = "^0.5.3"
+loguru = "^0.6.0"
 stringcase = "^1.2.0"
-pyjwt-key-fetcher = "^0.1.0"
+pyjwt-key-fetcher = "^0.2.0"
 PyJWT = "^2.4.0"
 
 [tool.poetry.dev-dependencies]
-isort = "^5.5.3"
-bandit = "^1.7.0"
+isort = "^5.10.1"
+bandit = "^1.7.4"
 
 [tool.isort]
 profile = "black"
