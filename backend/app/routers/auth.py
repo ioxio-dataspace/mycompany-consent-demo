@@ -8,7 +8,13 @@ from fastapi.responses import RedirectResponse
 from firedantic import ModelNotFoundError
 from pydantic import BaseModel
 
-from app.api import MeResponse, StartLoginRequest, StartLoginResponse
+from app.api import (
+    MeResponse,
+    MeResponseNotLoggedIn,
+    MeResponses,
+    StartLoginRequest,
+    StartLoginResponse,
+)
 from app.auth import (
     generate_logout_state,
     generate_nonce,
@@ -45,11 +51,12 @@ class UserInfoResponse(BaseModel):
 
 
 @router.get(
-    "/me", summary="Check current user", tags=["auth"], response_model=MeResponse
+    "/me", summary="Check current user", tags=["auth"], response_model=MeResponses
 )
 async def me(access_token: str = Cookie(None)):
     if not access_token:
-        raise HTTPException(401, "Authentication required")
+        logger.debug("Missing access token")
+        return MeResponseNotLoggedIn()
 
     headers = {"Authorization": f"Bearer {access_token}"}
 
@@ -57,15 +64,11 @@ async def me(access_token: str = Cookie(None)):
     res = await client.post(url=openid_conf.userinfo_endpoint, headers=headers)
 
     if res.is_error:
-        expected_errors = {
-            401: "Authentication required",
-            403: "Forbidden",
-        }
-        if res.status_code in expected_errors:
+        if res.status_code in {401, 403}:
             logger.debug(
                 "Got error from user info endpoint", code=res.status_code, err=res.text
             )
-            raise HTTPException(res.status_code, expected_errors[res.status_code])
+            return MeResponseNotLoggedIn()
         else:
             logger.error(
                 "Failed to call user info endpoint", code=res.status_code, err=res.text
