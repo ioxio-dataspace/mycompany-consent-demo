@@ -75,7 +75,7 @@ function App() {
     ;(async () => {
       const { ok, data } = await API.getUserData()
 
-      if (ok) {
+      if (ok && data.loggedIn) {
         // TODO: Demo grade
         // Construct userData with additional data for demo
         const avatars = [person1Img]

@@ -64,7 +64,7 @@ function App() {
     ;(async () => {
       const { ok, data } = await API.getUserData()
 
-      if (ok) {
+      if (ok && data.loggedIn) {
         // TODO: Demo grade
         const userData = {
           ...data,
