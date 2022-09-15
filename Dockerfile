@@ -16,16 +16,16 @@ RUN set -exu \
 WORKDIR /src/frontend/my-company
 
 # Install dependencies
-ADD frontend/my-company/package.json frontend/my-company/yarn.lock ./
+ADD frontend/my-company/package.json frontend/my-company/pnpm-lock.yaml ./
 RUN set -exu \
- && yarn install \
- && yarn add puppeteer@1.19.0 \
+ && pnpm install --frozen-lockfile \
+ && pnpm add puppeteer@1.19.0 \
  && rm -rf /root/.cache \
  && :
 
 # Build the frontend
 ADD frontend/my-company ./
-RUN yarn run build
+RUN pnpm run build
 
 # ----- React build ----- #
 FROM digitallivinginternational/nodejs-base:ubuntu20.04-node14 AS accountant-frontend
@@ -47,14 +47,14 @@ WORKDIR /src/frontend/accountant
 # Install dependencies
 ADD frontend/accountant/package.json frontend/accountant/yarn.lock ./
 RUN set -exu \
- && yarn install \
- && yarn add puppeteer@1.19.0 \
+ && pnpm install --frozen-lockfile \
+ && pnpm add puppeteer@1.19.0 \
  && rm -rf /root/.cache \
  && :
 
 # Build the frontend
 ADD frontend/accountant ./
-RUN yarn run build
+RUN pnpm run build
 
 
 # ----- Server build ----- #
