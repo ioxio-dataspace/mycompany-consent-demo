@@ -56,3 +56,17 @@ repos:
     rev: v0.5.0
     hooks:
       - id: skjold
+  - repo: local
+    hooks:
+      - id: audit
+        name: audit accountant
+        entry: pnpm --dir frontend/accountant audit
+        language: system
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: audit
+        name: audit my-company
+        entry: pnpm --dir frontend/my-company audit
+        language: system
+        pass_filenames: false
