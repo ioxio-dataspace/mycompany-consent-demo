@@ -45,7 +45,7 @@ RUN set -exu \
 WORKDIR /src/frontend/accountant
 
 # Install dependencies
-ADD frontend/accountant/package.json frontend/accountant/yarn.lock ./
+ADD frontend/accountant/package.json frontend/accountant/pnpm-lock.yaml ./
 RUN set -exu \
  && pnpm install --frozen-lockfile \
  && pnpm add puppeteer@1.19.0 \

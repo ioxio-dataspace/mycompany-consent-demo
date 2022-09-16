@@ -6,7 +6,7 @@ to achieve highly customizible UI.
 ### Installation
 
 ```
-yarn
+pnpm
 ```
 
 ### Development
@@ -20,11 +20,11 @@ PUBLIC_URL=/accountant
 Then run:
 
 ```
-yarn start
+pnpm start
 ```
 
 ```
-yarn build
+pnpm build
 ```
 
 ### UI Customization
