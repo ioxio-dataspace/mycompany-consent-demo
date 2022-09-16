@@ -1,7 +1,14 @@
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Literal, Optional, Union
 from uuid import UUID
 
 from pydantic import AnyUrl, BaseModel, Field
+from stringcase import camelcase
+
+
+class CamelCaseModel(BaseModel):
+    class Config:
+        alias_generator = camelcase
+        allow_population_by_field_name = True
 
 
 class HealthResponse(BaseModel):
@@ -46,9 +53,17 @@ class UserData(BaseModel):
     name: str
 
 
-class MeResponse(BaseModel):
+class MeResponse(CamelCaseModel):
+    logged_in: Literal[True] = True
     id: str
     name: str
+
+
+class MeResponseNotLoggedIn(CamelCaseModel):
+    logged_in: Literal[False] = False
+
+
+MeResponses = Union[MeResponse, MeResponseNotLoggedIn]
 
 
 class StartLoginRequest(BaseModel):
