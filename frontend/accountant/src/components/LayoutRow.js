@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Flex, Image, jsx } from "theme-ui"
 import { VerticalMenu, PageHeader } from "components"
-import { Global, css } from "@emotion/core"
+import { Global, css } from "@emotion/react"
 import sibLogo from "assets/images/mybis-logo.svg"
 
 const GLOBAL = css(`

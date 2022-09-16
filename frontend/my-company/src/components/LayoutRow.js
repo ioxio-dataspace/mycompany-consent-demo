@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { Flex, jsx } from "theme-ui"
 import { VerticalMenu, PageHeader } from "components"
-import { Global, css } from "@emotion/core"
+import { Global, css } from "@emotion/react"
 import LayoutImage from "assets/images/layout-side.png"
 
 const GLOBAL = css(`

@@ -3,23 +3,25 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.4.0",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
+    "@svgr/webpack": "^5.5.0",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
-    "@theme-ui/color": "^0.3.1",
-    "classnames": "^2.2.6",
+    "@theme-ui/color": "^0.4.0-highlight.0",
+    "classnames": "^2.3.2",
     "gzipper": "^4.4.0",
     "http-proxy-middleware": "^1.0.5",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-modal": "^3.11.2",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3",
-    "react-select": "^4.0.2",
-    "theme-ui": "^0.3.1"
+    "react-scripts": "4.0.3",
+    "react-select": "^3.1.0",
+    "theme-ui": "^0.4.0-highlight.0"
   },
   "reactSnap": {
     "puppeteerArgs": [
@@ -33,9 +35,8 @@
     "source": "build"
   },
   "scripts": {
-    "postbuild": "react-snap && yarn compress:gzip",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "react-scripts build && react-snap && pnpm run compress:gzip",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "prettier": "prettier 'src/**/*.js' --config ./../.prettierrc.js --check",
@@ -67,24 +68,15 @@
       "minimist@<1.2.6": ">=1.2.6",
       "node-forge@<1.0.0": ">=1.0.0",
       "immer@<9.0.6": ">=9.0.6",
-      "object-path@<0.11.6": ">=0.11.6",
-      "postcss@<7.0.36": ">=7.0.36",
-      "node-fetch@<2.6.7": ">=2.6.7",
-      "object-path@<0.11.5": ">=0.11.5",
+      "node-fetch@<2.6.7": "2.6.7",
       "minimist@<0.2.1": ">=0.2.1",
       "node-forge@<1.3.0": ">=1.3.0",
       "nth-check@<2.0.1": ">=2.0.1",
       "shell-quote@<=1.7.2": ">=1.7.3",
       "glob-parent@<5.1.2": ">=5.1.2",
-      "react-dev-utils@>=0.4.0 <11.0.4": ">=11.0.4",
-      "object-path@<0.11.8": ">=0.11.8",
       "ansi-html@<0.0.8": ">=0.0.8",
-      "postcss@>=7.0.0 <7.0.36": ">=7.0.36",
       "browserslist@>=4.0.0 <4.16.5": ">=4.16.5",
-      "immer@<8.0.1": ">=8.0.1",
-      "node-notifier@<8.0.1": ">=8.0.1",
-      "node-fetch@<2.6.1": ">=2.6.1",
-      "jsdom@<=16.4.0": ">=16.5.0"
+      "ejs@<3.1.7": ">=3.1.7"
     }
   }
 }
