@@ -78,7 +78,7 @@ async def request_consent(data: RequestConsentRequest, id_token: str = Cookie(..
     Request a consent for accessing data using Consent Provider
     """
     url = f"{conf.CONSENT_PROVIDER_URL}/Consent/Request"
-    headers = {"Authorization": id_token}
+    headers = {"Authorization": f"Bearer {id_token}"}
     logger.debug("Requesting a consent", data)
     try:
         resp = await client.post(url, json=data.dict(by_alias=True), headers=headers)
