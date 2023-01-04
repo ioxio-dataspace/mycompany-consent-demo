@@ -15,7 +15,7 @@ import prhLogo from "assets/images/prh-logo.png"
 import myBisLogo from "assets/images/mybis-dark-logo.svg"
 
 const STANDARD = "draft/Company/Shareholders"
-const DATA_SOURCE = "digitalliving:v2"
+const DATA_SOURCE = "ioxio:v2"
 
 const DATA_PRODUCTS = [
   {

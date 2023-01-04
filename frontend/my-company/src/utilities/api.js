@@ -88,7 +88,7 @@ class API {
     )
   }
 
-  async getCompanyBasicInfo(companyId, source = "digitalliving") {
+  async getCompanyBasicInfo(companyId, source = "ioxio") {
     return this.responseWrapper(
       await fetch(
         `${this.baseUrl}/dataProduct/draft/Company/BasicInfo?source=${source}`,
@@ -105,7 +105,7 @@ class API {
     )
   }
 
-  async getOwnershipData(companyId, nexusBaseDomain, source = "digitalliving:v2") {
+  async getOwnershipData(companyId, nexusBaseDomain, source = "ioxio:v2") {
     return this.responseWrapper(
       await fetch(
         `${this.baseUrl}/dataProduct/draft/Company/Shareholders?source=${source}`,
