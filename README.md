@@ -4,11 +4,10 @@ This repository contains My Company demo app
 
 ### Data source with consent
 
-This application uses the data product `draft/Company/Shareholders` from the
-`digitalliving:v2` source on the `sandbox.ioxio-dataspace.com` dataspace. It requires a
-consent to access the data, so before fetching it, the application is redirecting user
-to the Consent Provider's verification page where the user will either accept or deny
-the request.
+This application uses the data product `draft/Company/Shareholders` from the `ioxio:v2`
+source on the `sandbox.ioxio-dataspace.com` dataspace. It requires a consent to access
+the data, so before fetching it, the application is redirecting user to the Consent
+Provider's verification page where the user will either accept or deny the request.
 
 Please note that only the `my-company` app uses consent, the `accountant` app uses the
 `v1` source which does not require consent.

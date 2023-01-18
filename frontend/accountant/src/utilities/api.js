@@ -72,7 +72,7 @@ class API {
     )
   }
 
-  async getCompanyBasicInfo(companyId, source = "digitalliving") {
+  async getCompanyBasicInfo(companyId, source = "ioxio") {
     return this.responseWrapper(
       await fetch(
         `${this.baseUrl}/dataProduct/draft/Company/BasicInfo?source=${source}`,
@@ -89,7 +89,7 @@ class API {
     )
   }
 
-  async getOwnershipData(companyId, source = "digitalliving:v1") {
+  async getOwnershipData(companyId, source = "ioxio:v1") {
     return this.responseWrapper(
       await fetch(
         `${this.baseUrl}/dataProduct/draft/Company/Shareholders?source=${source}`,
