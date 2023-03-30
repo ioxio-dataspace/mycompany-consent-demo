@@ -1,5 +1,11 @@
 # My Company Consent demo application
 
+**Note!** This demo app is no longer supported or maintained.
+
+It will NOT work with the current version of the Consent Protocol! 
+
+## Original README below
+
 This repository contains My Company demo app
 
 ### Data source with consent
